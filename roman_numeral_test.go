@@ -2,7 +2,9 @@ package valueobject_test
 
 import (
 	"fmt"
-	"github.com/kntaka/go_value_object"
+
+	"github.com/knwoop/go-valueobject"
+
 	"testing"
 )
 

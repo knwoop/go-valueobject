@@ -3,7 +3,6 @@ package valueobject
 import (
 	"errors"
 	"regexp"
-
 )
 
 // EmailAddress errors
