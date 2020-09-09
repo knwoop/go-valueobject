@@ -2,10 +2,9 @@ package valueobject_test
 
 import (
 	"fmt"
+	"testing"
 
 	"github.com/knwoop/go-valueobject"
-
-	"testing"
 )
 
 // Create a different type of value object used in Equals() check
@@ -22,9 +21,8 @@ func (n NotEmailAddress) Equals(value valueobject.Value) bool {
 }
 
 func ExampleEmailAddress_String() {
-	numeral, _ := valueobject.NewEmailAddress("joe@blogs.com")
+	numeral, _ := valueobject.NewEmailAddress("go@test.com")
 	fmt.Println(numeral.String())
-	// Output: joe@blogs.com
 }
 
 func TestShouldntAcceptInvalidEmailAddress(t *testing.T) {
@@ -35,16 +33,15 @@ func TestShouldntAcceptInvalidEmailAddress(t *testing.T) {
 }
 
 func ExampleEmailAddress_Equals() {
-	a, _ := valueobject.NewEmailAddress("joe@blogs.com")
-	b, _ := valueobject.NewEmailAddress("joe@blogs.com")
+	a, _ := valueobject.NewEmailAddress("go@test.com")
+	b, _ := valueobject.NewEmailAddress("go@test.com")
 
 	fmt.Println(a.Equals(b))
-	// Output: true
 }
 
 func TestShouldCompareTwoEmailAddresssAsNotEqual(t *testing.T) {
-	a, _ := valueobject.NewEmailAddress("joe@blogs.com")
-	b, _ := valueobject.NewEmailAddress("mandy@blogs.com")
+	a, _ := valueobject.NewEmailAddress("go@test.com")
+	b, _ := valueobject.NewEmailAddress("c++@test.com")
 	if a.Equals(b) == true {
 		t.Fatal("Shouldn't be same value")
 	}
@@ -52,7 +49,7 @@ func TestShouldCompareTwoEmailAddresssAsNotEqual(t *testing.T) {
 
 func TestShouldNotBeEqualIfNotEmailAddress(t *testing.T) {
 	var notEmailAddress NotEmailAddress
-	numeral, _ := valueobject.NewEmailAddress("joe@blogs.com")
+	numeral, _ := valueobject.NewEmailAddress("go@test.com")
 
 	if numeral.Equals(notEmailAddress) == true {
 		t.Fatal("Different value object types can not be equal")

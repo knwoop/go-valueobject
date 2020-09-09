@@ -2,10 +2,9 @@ package valueobject_test
 
 import (
 	"fmt"
+	"testing"
 
 	"github.com/knwoop/go-valueobject"
-
-	"testing"
 )
 
 var integerToRomanNumeralTests = []struct {
